@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <!--
+  <div class="dropdown">
+                <button>Menu</button>
+                <div class="dropdown-content">
+                  <img src="img/factions/faction1.png" width="80px" height="200px" alt="Faction 1" onclick="setFaction(1,1)">
+                  <img src="img/factions/faction2.png" width="80px" height="200px" alt="Faction 2" onclick="setFaction(1,2)">
+                  <img src="img/factions/faction3.png" width="80px" height="200px" alt="Faction 3" onclick="setFaction(1,3)">
+                </div>
+              </div>
+   -->
+
+  <head></head>
+
+  <body>
+    <div class="table-container">
+
+      <p>PAX MAGNIFICA BELLUM GLORIOSUM</p>
+
+      <table id="table" class="draggable-table">
+      <thead style="height: 50px; font-size: 20pt;">
+        <th></th>
+        <th>Tiempo</th>
+        <th>Nombre</th>
+        <th>Facción</th>
+        <th style="width: 10%">Color</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><button class="button" id="player1btn" onclick="startTimer(1)">Start</button></td>
+          <td><span id="player1Timer">1:10:00</span></td>
+          <td><span contentEditable="true">Player 1</span></td>
+          <td>
+            <select id="factionSelector">
+              <option value="" disabled selected>Select Faction</option>
+              <option value="sardakk">Sardakk N'orr</option>
+              <option value="sol">Federation of Sol</option>
+              <option value="barony">Barony of Letnev</option>
+              <option value="hacan">Emirates of Hacan</option>
+              <option value="jolnar">Universities of Jol-Nar</option>
+              <option value="l1z1x">L1Z1X Mindnet</option>
+              <option value="mentak">Mentak Coalition</option>
+              <option value="naalu">Naalu Collective</option>
+              <option value="nekro">Nekro Virus</option>
+              <option value="creuss">Ghost of Creuss</option>
+              <option value="winu">Clan of Saar</option>
+              <option value="xxcha">Xxcha Kingdom</option>
+              <option value="yin">Yin Brotherhood</option>
+              <option value="yssaril">Yssaril Tribes</option>
+            </select>
+          </td>
+          <td><input type="color" id="player1color" value="#FF0000"></td>
+        </tr>
+        <tr>
+          <td><button class="button" id="player2btn" onclick="startTimer(2)">Start</button></td>
+          <td><span contentEditable="true" id="player2Timer">1:10:00</span></td>
+          <td><span contentEditable="true">Player 2</span></td>
+          <td>
+            <select id="factionSelector">
+              <option value="" disabled selected>Select Faction</option>
+              <option value="sardakk">Sardakk N'orr</option>
+              <option value="sol">Federation of Sol</option>
+              <option value="barony">Barony of Letnev</option>
+              <option value="hacan">Emirates of Hacan</option>
+              <option value="jolnar">Universities of Jol-Nar</option>
+              <option value="l1z1x">L1Z1X Mindnet</option>
+              <option value="mentak">Mentak Coalition</option>
+              <option value="naalu">Naalu Collective</option>
+              <option value="nekro">Nekro Virus</option>
+              <option value="creuss">Ghost of Creuss</option>
+              <option value="winu">Clan of Saar</option>
+              <option value="xxcha">Xxcha Kingdom</option>
+              <option value="yin">Yin Brotherhood</option>
+              <option value="yssaril">Yssaril Tribes</option>
+            </select>
+          </td>
+          <td><input type="color" id="player2color" value="#FFFF00"></td>
+        </tr>  
+        <tr>
+          <td><button class="button" id="player3btn" onclick="startTimer(3)">Start</button></td>
+          <td><span id="player3Timer">1:10:00</span></td>
+          <td><span contentEditable="true">Player 3</span></td>
+          <td>
+            <select id="factionSelector">
+              <option value="" disabled selected>Select Faction</option>
+              <option value="sardakk">Sardakk N'orr</option>
+              <option value="sol">Federation of Sol</option>
+              <option value="barony">Barony of Letnev</option>
+              <option value="hacan">Emirates of Hacan</option>
+              <option value="jolnar">Universities of Jol-Nar</option>
+              <option value="l1z1x">L1Z1X Mindnet</option>
+              <option value="mentak">Mentak Coalition</option>
+              <option value="naalu">Naalu Collective</option>
+              <option value="nekro">Nekro Virus</option>
+              <option value="creuss">Ghost of Creuss</option>
+              <option value="winu">Clan of Saar</option>
+              <option value="xxcha">Xxcha Kingdom</option>
+              <option value="yin">Yin Brotherhood</option>
+              <option value="yssaril">Yssaril Tribes</option>
+            </select>
+          </td>
+          <td><input type="color" id="player3color" value="#FF00FF"></td>
+        </tr> 
+        <tr>
+          <td><button class="button" id="player4btn" onclick="startTimer(4)">Start</button></td>
+          <td><span id="player4Timer">1:10:00</span></td>
+          <td><span contentEditable="true">Player 4</span></td>
+          <td>
+            <select id="factionSelector">
+              <option value="" disabled selected>Select Faction</option>
+              <option value="sardakk">Sardakk N'orr</option>
+              <option value="sol">Federation of Sol</option>
+              <option value="barony">Barony of Letnev</option>
+              <option value="hacan">Emirates of Hacan</option>
+              <option value="jolnar">Universities of Jol-Nar</option>
+              <option value="l1z1x">L1Z1X Mindnet</option>
+              <option value="mentak">Mentak Coalition</option>
+              <option value="naalu">Naalu Collective</option>
+              <option value="nekro">Nekro Virus</option>
+              <option value="creuss">Ghost of Creuss</option>
+              <option value="winu">Clan of Saar</option>
+              <option value="xxcha">Xxcha Kingdom</option>
+              <option value="yin">Yin Brotherhood</option>
+              <option value="yssaril">Yssaril Tribes</option>
+            </select>
+          </td>
+          <td><input type="color" id="player4color" value="#008000"></td>
+        </tr>
+        <tr>
+          <td><button class="button" id="player5btn" onclick="startTimer(5)">Start</button></td>
+          <td><span id="player5Timer">1:10:00</span></td>
+          <td><span contentEditable="true">Player 5</span></td>
+          <td>
+            <select id="factionSelector">
+              <option value="" disabled selected>Select Faction</option>
+              <option value="sardakk">Sardakk N'orr</option>
+              <option value="sol">Federation of Sol</option>
+              <option value="barony">Barony of Letnev</option>
+              <option value="hacan">Emirates of Hacan</option>
+              <option value="jolnar">Universities of Jol-Nar</option>
+              <option value="l1z1x">L1Z1X Mindnet</option>
+              <option value="mentak">Mentak Coalition</option>
+              <option value="naalu">Naalu Collective</option>
+              <option value="nekro">Nekro Virus</option>
+              <option value="creuss">Ghost of Creuss</option>
+              <option value="winu">Clan of Saar</option>
+              <option value="xxcha">Xxcha Kingdom</option>
+              <option value="yin">Yin Brotherhood</option>
+              <option value="yssaril">Yssaril Tribes</option>
+            </select>
+          </td>
+          <td><input type="color" id="player5color" value="#0000FF"></td>
+        </tr>  
+        <tr>
+          <td><button class="button" id="player6btn" onclick="startTimer(6)">Start</button></td>
+          <td><span id="player6Timer">1:10:00</span></td>
+          <td><span contentEditable="true">Player 6</span></td>
+          <td>
+            <select id="factionSelector">
+              <option value="" disabled selected>Select Faction</option>
+              <option value="sardakk">Sardakk N'orr</option>
+              <option value="sol">Federation of Sol</option>
+              <option value="barony">Barony of Letnev</option>
+              <option value="hacan">Emirates of Hacan</option>
+              <option value="jolnar">Universities of Jol-Nar</option>
+              <option value="l1z1x">L1Z1X Mindnet</option>
+              <option value="mentak">Mentak Coalition</option>
+              <option value="naalu">Naalu Collective</option>
+              <option value="nekro">Nekro Virus</option>
+              <option value="creuss">Ghost of Creuss</option>
+              <option value="winu">Clan of Saar</option>
+              <option value="xxcha">Xxcha Kingdom</option>
+              <option value="yin">Yin Brotherhood</option>
+              <option value="yssaril">Yssaril Tribes</option>
+            </select>
+          </td>
+          <td><input type="color" id="player6color" value="#000000"></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+
+  </body>
+
+  <script type="text/javascript">
+
+    function getSelectedFaction() {
+      var select = document.getElementById("factionSelector");
+      var selectedFaction = select.options[select.selectedIndex].value;
+      alert("Selected Faction: " + selectedFaction);
+    }
+    
+    function setFaction(player, faction) {
+      document.getElementById("player" + player + "Faction").textContent = "Yin Brotherhood";
+    }
+
+    function displaySelectedImage(image) {
+      var selectedImage = document.getElementById("selectedImage");
+      selectedImage.innerHTML = "";
+      selectedImage.appendChild(image.cloneNode()); // Display the selected image
+      selectedImage.style.display = "block"; // Show the selected image
+    }
+
+  </script>
+
+ <script>
+    let intervalIds = [null, null, null, null, null, null];
+    let currentPlayer = -1;
+    let playersTime = [
+      1 * 60 * 60 + 10 * 60, // Player 1 time: 1 hour and 10 minutes in seconds
+      1 * 60 * 60 + 10 * 60, // Player 2 time: 1 hour and 10 minutes in seconds
+      1 * 60 * 60 + 10 * 60, // Player 3 time: 1 hour and 10 minutes in seconds
+      1 * 60 * 60 + 10 * 60, // Player 4 time: 1 hour and 10 minutes in seconds
+      1 * 60 * 60 + 10 * 60, // Player 5 time: 1 hour and 10 minutes in seconds
+      1 * 60 * 60 + 10 * 60  // Player 6 time: 1 hour and 10 minutes in seconds
+    ];
+
+    function startTimer(player) {
+
+      clearIntervalAll();
+      toggleButton(player, currentPlayer);
+
+      if (currentPlayer == player) {
+        currentPlayer = -1;
+        return;
+      }
+
+      currentPlayer = player;
+      intervalIds[player - 1] = setInterval(updateTimer, 1000);
+    }
+
+    function toggleButton(player, currentPlayer) {
+
+      console.log(player, currentPlayer)
+
+      if (player != currentPlayer) {
+        document.getElementById("player" + player + "btn").classList.toggle("pressed");
+        document.getElementById("player" + player + "btn").textContent = "Stop";
+      }
+
+      if (currentPlayer == -1) {
+        return
+      }
+
+      document.getElementById("player" + currentPlayer + "btn").classList.toggle("pressed");
+      document.getElementById("player" + currentPlayer + "btn").textContent = "Start";
+
+    }
+
+    function updateTimer() {
+      let currentPlayerTime = playersTime[currentPlayer - 1];
+      currentPlayerTime--;
+      document.getElementById("player" + currentPlayer + "Timer").textContent = formatTime(currentPlayerTime);
+      playersTime[currentPlayer - 1] = currentPlayerTime;
+      if (currentPlayerTime <= 0) {
+        clearIntervalAll();
+        alert("Player " + currentPlayer + "'s time is up!");
+      }
+    }
+
+    function formatTime(time) {
+      let hours = Math.floor(time / 3600);
+      let minutes = Math.floor((time % 3600) / 60);
+      let seconds = time % 60;
+      return (
+        (hours < 10 ? "0" + hours : hours) +
+        ":" +
+        (minutes < 10 ? "0" + minutes : minutes) +
+        ":" +
+        (seconds < 10 ? "0" + seconds : seconds)
+      );
+    }
+
+    function clearIntervalAll() {
+      for (let i = 0; i < intervalIds.length; i++) {
+        clearInterval(intervalIds[i]);
+      }
+    }
+
+    function stopTimer() {
+      clearIntervalAll();
+      for (let i = 1; i < intervalIds.length + 1; i++) {
+        document.getElementById("player" + i + "btn").textContent = "Start";
+        document.getElementById("player" + i + "btn").classList.toggle("pressed");
+      }
+    }
+  </script>
+  
+<script>
+    (function() {
+  "use strict";
+  
+  const table = document.getElementById('table');
+  const tbody = table.querySelector('tbody');
+  
+  var currRow = null,
+      dragElem = null,
+      mouseDownX = 0,
+      mouseDownY = 0,         
+      mouseX = 0,
+      mouseY = 0,      
+      mouseDrag = false;  
+  
+  function init() {
+    bindMouse();
+  }
+  
+  function bindMouse() {
+    document.addEventListener('mousedown', (event) => {
+      if(event.button != 0) return true;
+      
+      let target = getTargetRow(event.target);
+      if(target) {
+        currRow = target;
+        addDraggableRow(target);
+        currRow.classList.add('is-dragging');
+
+
+        let coords = getMouseCoords(event);
+        mouseDownX = coords.x;
+        mouseDownY = coords.y;      
+
+        mouseDrag = true;   
+      }
+    });
+    
+    document.addEventListener('mousemove', (event) => {
+      if(!mouseDrag) return;
+      
+      let coords = getMouseCoords(event);
+      mouseX = coords.x - mouseDownX;
+      mouseY = coords.y - mouseDownY;  
+      
+      moveRow(mouseX, mouseY);
+    });
+    
+    document.addEventListener('mouseup', (event) => {
+      if(!mouseDrag) return;
+      
+      currRow.classList.remove('is-dragging');
+      table.removeChild(dragElem);
+      
+      dragElem = null;
+      mouseDrag = false;
+    });    
+  }
+  
+  
+  function swapRow(row, index) {
+     let currIndex = Array.from(tbody.children).indexOf(currRow),
+         row1 = currIndex > index ? currRow : row,
+         row2 = currIndex > index ? row : currRow;
+         
+     tbody.insertBefore(row1, row2);
+  }
+    
+  function moveRow(x, y) {
+    dragElem.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+    
+    let dPos = dragElem.getBoundingClientRect(),
+        currStartY = dPos.y, currEndY = currStartY + dPos.height,
+        rows = getRows();
+
+    for(var i = 0; i < rows.length; i++) {
+      let rowElem = rows[i],
+          rowSize = rowElem.getBoundingClientRect(),
+          rowStartY = rowSize.y, rowEndY = rowStartY + rowSize.height;
+
+      if(currRow !== rowElem && isIntersecting(currStartY, currEndY, rowStartY, rowEndY)) {
+        if(Math.abs(currStartY - rowStartY) < rowSize.height / 2)
+          swapRow(rowElem, i);
+      }
+    }    
+  }
+  
+  function addDraggableRow(target) {    
+      dragElem = target.cloneNode(true);
+      dragElem.classList.add('draggable-table__drag');
+      dragElem.style.height = getStyle(target, 'height');
+      dragElem.style.background = getStyle(target, 'backgroundColor');     
+      for(var i = 0; i < target.children.length; i++) {
+        let oldTD = target.children[i],
+            newTD = dragElem.children[i];
+        newTD.style.width = getStyle(oldTD, 'width');
+        newTD.style.height = getStyle(oldTD, 'height');
+        newTD.style.padding = getStyle(oldTD, 'padding');
+        newTD.style.margin = getStyle(oldTD, 'margin');
+      }      
+      
+      table.appendChild(dragElem);
+
+    
+      let tPos = target.getBoundingClientRect(),
+          dPos = dragElem.getBoundingClientRect();
+      dragElem.style.bottom = ((dPos.y - tPos.y) - tPos.height) + "px";
+      dragElem.style.left = "-1px";    
+    
+      document.dispatchEvent(new MouseEvent('mousemove',
+        { view: window, cancelable: true, bubbles: true }
+      ));    
+  }  
+  
+  function getRows() {
+    return table.querySelectorAll('tbody tr');
+  }    
+  
+  function getTargetRow(target) {
+      let elemName = target.tagName.toLowerCase();
+
+      if(elemName == 'tr') return target;
+      if(elemName == 'td') return target.closest('tr');     
+  }
+  
+  function getMouseCoords(event) {
+    return {
+        x: event.clientX,
+        y: event.clientY
+    };    
+  }  
+  
+  function getStyle(target, styleName) {
+    let compStyle = getComputedStyle(target),
+        style = compStyle[styleName];
+
+    return style ? style : null;
+  }  
+  
+  function isIntersecting(min0, max0, min1, max1) {
+      return Math.max(min0, max0) >= Math.min(min1, max1) &&
+             Math.min(min0, max0) <= Math.max(min1, max1);
+  }  
+  
+  init();
+  
+  })();
+
+</script>
+
+</html>
